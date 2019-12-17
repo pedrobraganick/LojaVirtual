@@ -10,7 +10,8 @@ class HomePage extends StatelessWidget {
       title: 'Flutter Clothing',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        primaryColor: Color.fromARGB(255, 4, 125, 141)
+        primaryColor: Color.fromARGB(255, 4, 125, 141),
+        accentColor: Colors.black
       ),
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
