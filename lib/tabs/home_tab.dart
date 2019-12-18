@@ -7,12 +7,12 @@ class HomeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    Widget _buildBodyBack() => Container(
+    Widget _buildBodyBack({int op = 255}) => Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
            colors: [
-             Color.fromARGB(255,  211, 118, 130),
-             Color.fromARGB(255,  253, 181, 168)
+             Color.fromARGB(op,  211, 118, 130),
+             Color.fromARGB(op,  253, 181, 168)
            ],
            begin: Alignment.topLeft,
           end: Alignment.bottomRight
@@ -30,8 +30,9 @@ class HomeTab extends StatelessWidget {
               backgroundColor: Colors.transparent,
               elevation: 0.0,
               flexibleSpace: FlexibleSpaceBar(
-                title: const Text("Novidades", style: TextStyle(color: Colors.black),),
+                title: const Text("Novidades"),
                 centerTitle: true,
+                background: _buildBodyBack(),
               ),
             ),
             FutureBuilder<QuerySnapshot>(
@@ -60,7 +61,7 @@ class HomeTab extends StatelessWidget {
                     ).toList(),
                     children: snapshot.data.documents.map(
                         (doc){
-                          return FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: doc.data["image"], fit: BoxFit.cover,);
+                          return FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: doc.data["image"], fit: BoxFit.fill ,);
                         }
                     ).toList(),
                   );
