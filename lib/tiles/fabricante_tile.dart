@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:lojavirtual/screens/produtos_screen.dart';
 
 class FabricanteTile extends StatelessWidget {
 
@@ -17,7 +18,9 @@ class FabricanteTile extends StatelessWidget {
       ),
       title: Text(snapshot.data["title"]),
       trailing: Icon(Icons.keyboard_arrow_right),
-      onTap: (){},
+      onTap: (){
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProdutosScreen(snapshot)));
+      },
     );
   }
 }
