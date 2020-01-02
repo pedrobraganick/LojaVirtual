@@ -57,7 +57,21 @@ class _ProdutScreenState extends State<ProdutScreen> {
                 ),
                 ),
                 SizedBox(height: 16.0,),
-                Text("Cor", style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.w500),)
+                SizedBox(
+                  height: 44.0,
+                  child: RaisedButton(
+                    onPressed:  () {} ,
+                    child: Text("Adicionar", style: TextStyle(fontSize: 18.0),
+                    ),
+                    color: primaryColor,
+                    textColor: Colors.white,
+                  ),
+                )
+                ,
+                SizedBox(height: 16.0,),
+            Text("Descrição", style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500)),
+            Text(produto.descricao, style: TextStyle(fontSize: 18.0)),
+
               ],
             ),
           )
