@@ -16,13 +16,13 @@ class UserModel extends Model {
       {@required Map<String, dynamic> userData,
       @required String pass,
       @required VoidCallback onSuccess,
-      @required VoidCallback onFail}) async{
+      @required VoidCallback onFail}) {
     isLoading = true;
     notifyListeners();
 
-    await _auth
+    _auth
         .createUserWithEmailAndPassword(
-            email: userData["email"], password: pass)
+            email: userData["email"], password: pass).catchError((e){print(e.toString());})
         .then((auth) async {
       firebaseUser = auth.user;
       await _saveUserData(userData);
@@ -30,6 +30,7 @@ class UserModel extends Model {
       onSuccess();
       notifyListeners();
     }).catchError((e) {
+      print(e.toString());
       onFail();
       isLoading = false;
       notifyListeners();
