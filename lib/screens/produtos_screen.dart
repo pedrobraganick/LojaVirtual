@@ -40,13 +40,13 @@ class ProdutosScreen extends StatelessWidget {
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 4.0, crossAxisSpacing: 4.0,childAspectRatio: 0.65),
                     itemCount: snapshot.data.documents.length,
                     itemBuilder: (context,index){
-                      return ProdutosTile("grid", ProdutoData.fromDocument(snapshot.data.documents[index]));
+                      return ProdutosTile("grid", ProdutoData.fromDocument(snapshot.data.documents[index],fabricante: this.snapshot.documentID));
                     }),
                   ListView.builder(
                     padding: EdgeInsets.all(4.0),
                     itemCount: snapshot.data.documents.length,
                     itemBuilder: (context,index){
-                      return ProdutosTile("list", ProdutoData.fromDocument(snapshot.data.documents[index]));
+                      return ProdutosTile("list", ProdutoData.fromDocument(snapshot.data.documents[index], fabricante: this.snapshot.documentID));
                     },
                   )
                 ],
